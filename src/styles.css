@@ -142,3 +142,86 @@
     color: var(--color-foreground);
   }
 }
+
+/* site-import tokens: begin (generated; re-import replaces this block) */
+/* Imported clone roles use prefixed Tailwind utilities
+   (bg-site-import-primary, text-site-import-foreground, …); edit the
+   --site-import-* variables to restyle the clone. Unprefixed roles theme new UI. */
+:root {
+  --background: oklch(1 0 0);
+  --site-import-background: oklch(1 0 0);
+  --foreground: oklch(0.26209 0.00949 248.19);
+  --site-import-foreground: oklch(0.26209 0.00949 248.19);
+  --primary: oklch(0.64955 0.20071 13.17);
+  --site-import-primary: oklch(0.64955 0.20071 13.17);
+  --primary-foreground: oklch(0.985 0 0);
+  --site-import-primary-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.5782 0.22821 260.03);
+  --site-import-accent: oklch(0.5782 0.22821 260.03);
+  --border: oklch(0.86378 0 0);
+  --site-import-border: oklch(0.86378 0 0);
+  --muted-foreground: oklch(0.44799 0.00788 17.45);
+  --site-import-muted-foreground: oklch(0.44799 0.00788 17.45);
+  --card: oklch(0.95958 0.01774 4.52);
+  --site-import-card: oklch(0.95958 0.01774 4.52);
+  --muted: oklch(0.91087 0.00696 247.9);
+  --site-import-muted: oklch(0.91087 0.00696 247.9);
+}
+/* Design tokens captured from the imported site, registered as Tailwind
+   utilities (bg-<name>, text-<name>, font-<name>). var() values live in
+   the imported stylesheet's :root. */
+@theme inline {
+  --font-sans: Roboto, sans-serif;
+  --color-site-import-background: var(--site-import-background);
+  --color-site-import-foreground: var(--site-import-foreground);
+  --color-site-import-primary: var(--site-import-primary);
+  --color-site-import-primary-foreground: var(--site-import-primary-foreground);
+  --color-site-import-accent: var(--site-import-accent);
+  --color-site-import-border: var(--site-import-border);
+  --color-site-import-muted-foreground: var(--site-import-muted-foreground);
+  --color-site-import-card: var(--site-import-card);
+  --color-site-import-muted: var(--site-import-muted);
+  --color-bs-black: var(--bs-black);
+  --color-bs-blue: var(--bs-blue);
+  --color-bs-body-bg: var(--bs-body-bg);
+  --color-bs-body-color: var(--bs-body-color);
+  --font-bs-body-font-family: var(--bs-body-font-family);
+  --color-bs-border-color: var(--bs-border-color);
+  --color-bs-border-color-translucent: var(--bs-border-color-translucent);
+  --color-bs-code-color: var(--bs-code-color);
+  --color-bs-cyan: var(--bs-cyan);
+  --color-bs-danger: var(--bs-danger);
+  --color-bs-dark: var(--bs-dark);
+  --font-bs-font-monospace: var(--bs-font-monospace);
+  --font-bs-font-sans-serif: var(--bs-font-sans-serif);
+  --color-bs-gray: var(--bs-gray);
+  --color-bs-gray-100: var(--bs-gray-100);
+  --color-bs-gray-200: var(--bs-gray-200);
+  --color-bs-gray-300: var(--bs-gray-300);
+  --color-bs-gray-400: var(--bs-gray-400);
+  --color-bs-gray-500: var(--bs-gray-500);
+  --color-bs-gray-600: var(--bs-gray-600);
+  --color-bs-gray-700: var(--bs-gray-700);
+  --color-bs-gray-800: var(--bs-gray-800);
+  --color-bs-gray-900: var(--bs-gray-900);
+  --color-bs-gray-dark: var(--bs-gray-dark);
+  --color-bs-green: var(--bs-green);
+  --color-bs-highlight-bg: var(--bs-highlight-bg);
+  --color-bs-indigo: var(--bs-indigo);
+  --color-bs-info: var(--bs-info);
+  --color-bs-light: var(--bs-light);
+  --color-bs-link-color: var(--bs-link-color);
+  --color-bs-link-hover-color: var(--bs-link-hover-color);
+  --color-bs-orange: var(--bs-orange);
+  --color-bs-pink: var(--bs-pink);
+  --color-bs-primary: var(--bs-primary);
+  --color-bs-purple: var(--bs-purple);
+  --color-bs-red: var(--bs-red);
+  --color-bs-secondary: var(--bs-secondary);
+  --color-bs-success: var(--bs-success);
+  --color-bs-teal: var(--bs-teal);
+  --color-bs-warning: var(--bs-warning);
+  --color-bs-white: var(--bs-white);
+  --color-bs-yellow: var(--bs-yellow);
+}
+/* site-import tokens: end */
