@@ -56,8 +56,6 @@ export const Route = createFileRoute("/")({
 const WEDDING_DATE = new Date("2027-01-29T10:30:00+05:30").getTime();
 
 const CONTACT_PHONE = "9605019992";
-const mapsUrl = (q: string) =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 const WEDDING_EVENTS = [
   {
     key: "ceremony",
@@ -66,6 +64,7 @@ const WEDDING_EVENTS = [
     start: "20270129T100000",
     end: "20270129T110000",
     location: "J's International Convention Centre, Kalluvathukkal, Kollam",
+    map: "https://maps.app.goo.gl/8gmnynP1SUSi3W9A6?g_st=aw",
   },
   {
     key: "reception",
@@ -74,6 +73,7 @@ const WEDDING_EVENTS = [
     start: "20270130T173000",
     end: "20270130T210000",
     location: "Marine Pride Beach Resort, Edava, Varkala",
+    map: "https://maps.app.goo.gl/xvpoM3h5z7WWLAME6?g_st=aw",
   },
 ];
 
@@ -476,10 +476,6 @@ function Index() {
       io.observe(c);
     });
     document.querySelectorAll<HTMLElement>(".k-ft-inner").forEach((c) => {
-      c.classList.add("k-pre");
-      io.observe(c);
-    });
-    document.querySelectorAll<HTMLElement>(".k-dc-card").forEach((c) => {
       c.classList.add("k-pre");
       io.observe(c);
     });
@@ -953,7 +949,7 @@ function Index() {
                       Time
                     </span>
                     <span className="ov-ti-t text-[#ffffffe0] text-[13px] font-medium tracking-[0.2px]">
-                      Muhurtham 11:00 AM
+                      Muhurtham 10 AM – 11 AM
                     </span>
                   </div>
                   <div className="border-l border-solid border-l-[#9c6f2266] flex flex-1 flex-col gap-1 py-[11px] px-2.5">
@@ -1103,7 +1099,6 @@ function Index() {
                 ["#happycouples", "Happy Couple", "fa-heart"],
                 ["#ourstory", "Families", "fa-book-open"],
                 ["#whenandwhere", "When & Where", "fa-map-marker-alt"],
-                ["#dresscode", "Dress Code", "fa-tshirt"],
                 ["#gallery", "Gallery", "fa-images"],
                 ["#video", "Video", "fa-video"],
                 ["#rsvp", "RSVP", "fa-envelope-open-text"],
@@ -1208,7 +1203,7 @@ function Index() {
                       type="hidden"
                       id="invitation_url"
                       name="invitation_url"
-                      defaultValue="https://360invites.com/send-wishes"
+                      defaultValue=""
                     />
                     <input
                       className="appearance-none bg-none! [background-position:0%_0%]! [background-size:auto_auto]! [background-repeat:repeat]! [background-origin:padding-box]! [background-clip:border-box]! [background-attachment:scroll]! bg-[#ffffff14]! border! border-solid! border-[#ffffff33]! rounded-[10px]! box-border! text-white! block! text-[16px]! h-[45px] m-0 mb-3! mt-[5px]! max-w-full! outline-none! py-3! px-3.5! touch-manipulation w-full! [font-family:inherit] [line-height:inherit] [transition:border-color_0.2s] focus:bg-none! focus:[background-position:0%_0%]! focus:[background-size:auto_auto]! focus:[background-repeat:repeat]! focus:[background-origin:padding-box]! focus:[background-clip:border-box]! focus:[background-attachment:scroll]! focus:bg-[#ffffff21]! focus:border-[#ffffff80]! placeholder:text-[#ffffff73]!"
@@ -1378,11 +1373,6 @@ function Index() {
                   <p className="mx-auto mt-6 max-w-[620px] px-4 text-[19px] italic leading-8 text-[#6d1a2b]">
                     “Love is the quiet promise to look in the same direction, together, for a
                     lifetime.”
-                  </p>
-                  <p className="mx-auto mt-5 max-w-[760px] px-4 text-[17px] leading-8 text-[#434343]">
-                    With the blessings of the Almighty and our elders, Sri. S. Ashokan (Late) &amp;
-                    Smt. S. Jaya cordially invite the honour of your esteemed presence and
-                    blessings with family on the auspicious occasion of the marriage of our son
                   </p>
                   <p className="mx-auto mt-5 max-w-[620px] px-4 text-[17px] italic leading-8 text-[#9c6f22]">
                     May the Almighty bless this union with a love that deepens, a joy that lasts and
@@ -1687,7 +1677,7 @@ function Index() {
                       </p>
                       <a
                         className="k-ev-btn"
-                        href={mapsUrl(c.event.location)}
+                        href={c.event.map}
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -1712,7 +1702,7 @@ function Index() {
             <section className="bigdaybottom-wrapper bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-(--ButtonColor) pt-[70px] pr-0 pb-[60px] pl-0 relative w-full">
               <div className="container ml-auto mr-auto max-w-[1440px]! pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full">
                 <style>{`
-.k-qa-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;max-width:1100px;margin:0 auto;padding:0 12px}
+.k-qa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:900px;margin:0 auto;padding:0 12px}
 .k-qa-item{display:block;padding:26px 14px 22px;border-radius:24px;background:linear-gradient(160deg,#2b3358,#1a2040);border:1px solid rgba(243,217,164,.35);box-shadow:0 12px 28px rgba(10,14,36,.35);text-align:center;text-decoration:none;color:#fff;transition:transform .3s,box-shadow .3s,border-color .3s}
 .k-qa-item:hover{transform:translateY(-6px);border-color:#f3d9a4;box-shadow:0 18px 36px rgba(10,14,36,.5),0 0 22px rgba(243,217,164,.18)}
 .k-qa-ico{position:relative;display:flex;align-items:center;justify-content:center;width:96px;height:96px;margin:0 auto 14px;border-radius:50%;background:radial-gradient(circle,rgba(243,217,164,.18),rgba(243,217,164,0) 70%);animation:k-qa-float 4s ease-in-out infinite}
@@ -1731,7 +1721,7 @@ function Index() {
 @keyframes k-qa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @keyframes k-qa-pulse{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.3);opacity:0}}
 @media(prefers-reduced-motion:reduce){.k-qa-item.k-pre{opacity:1;transform:none;transition:none}.k-qa-ico,.k-qa-live::before{animation:none!important}}
-@media(max-width:820px){.k-qa-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.k-qa-ico{width:80px;height:80px}.k-qa-glyph{width:52px;height:52px}.k-qa-label{font-size:13px!important}}
+@media(max-width:820px){.k-qa-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.k-qa-item:last-child:nth-child(odd){grid-column:1/-1}.k-qa-ico{width:80px;height:80px}.k-qa-glyph{width:52px;height:52px}.k-qa-label{font-size:13px!important}}
 `}</style>
                 <div className="k-qa-grid">
                   {[
@@ -1750,14 +1740,6 @@ function Index() {
                       target: "#whishModal",
                     },
                     {
-                      label: "Live Streaming",
-                      cap: "Watch live",
-                      img: "/site-assets/abbcf9c287f99c0a.png",
-                      href: "https://www.youtube.com/watch?v=1FdJyaCZ5ow",
-                      external: true,
-                      live: true,
-                    },
-                    {
                       label: "RSVP",
                       cap: "Confirm attendance",
                       img: "/site-assets/70f36d4b07131e54.png",
@@ -1770,9 +1752,8 @@ function Index() {
                       aria-label={a.label}
                       href={a.href}
                       {...(a.target ? { "data-bs-target": a.target } : {})}
-                      {...(a.external ? { target: "_blank", rel: "noreferrer" } : {})}
                     >
-                      <span className={`k-qa-ico${a.live ? " k-qa-live" : ""}`}>
+                      <span className="k-qa-ico">
                         <span
                           className="k-qa-glyph"
                           style={{ WebkitMaskImage: `url(${a.img})`, maskImage: `url(${a.img})` }}
@@ -1782,66 +1763,6 @@ function Index() {
                       <div className="k-qa-cap">{a.cap}</div>
                     </a>
                   ))}
-                </div>
-              </div>
-            </section>
-            <section
-              className="pt-[50px] pr-0 pb-5 pl-0 md:pt-[70px] md:pr-0 md:pb-[30px] md:pl-0"
-              id="dresscode"
-            >
-              <div className="container ml-auto mr-auto max-w-[1440px]! pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full">
-                <div className="inline-block w-full">
-                  <h6 className="font-[family-name:Roboto,sans-serif]! text-[14px] font-medium tracking-[4px] leading-[1.2] mt-0 mr-0 mb-1.5 ml-0 p-0 text-center uppercase text-[#a8879c]">
-                    dress code
-                  </h6>
-                  <h1 className="font-[family-name:var(--heading-font)]! font-medium leading-[52px] m-0 p-0 relative text-center w-full text-[#060644] text-[32px] md:text-[52px]">
-                    Dress to Celebrate
-                  </h1>
-                </div>
-                <style>{`
-.k-dc-card{position:relative;max-width:760px;margin:26px auto 0;padding:44px 28px 38px;border-radius:32px;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 60px rgba(50,60,96,.14),inset 0 1px 0 rgba(255,255,255,.9);text-align:center;overflow:hidden}
-.k-dc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#364dab,#f0f1f4,#cb1a1a)}
-.k-dc-eyebrow{margin:0 0 30px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#6b6b80}
-.k-dc-swatches{display:flex;flex-wrap:wrap;justify-content:center;gap:34px}
-.k-dc-sw{display:flex;flex-direction:column;align-items:center;gap:10px}
-.k-dc-dot{width:84px;height:84px;border-radius:50%;background:var(--c);border:4px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 14px 28px color-mix(in srgb,var(--c) 40%,transparent);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-.k-dc-sw:hover .k-dc-dot{transform:translateY(-8px) scale(1.08);box-shadow:0 0 0 1px rgba(0,0,0,.08),0 22px 38px color-mix(in srgb,var(--c) 55%,transparent)}
-.k-dc-name{font-size:14px;font-weight:600;color:#1a2040}
-.k-dc-hex{margin-top:-6px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#8a8a9a}
-.k-dc-sep{display:flex;align-items:center;gap:14px;margin:34px auto 22px;max-width:360px;color:#a8879c}
-.k-dc-sep::before,.k-dc-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#a8879c88,transparent)}
-.k-dc-sep i{font-size:11px}
-.k-dc-title{margin:0;font-family:'Instrument Serif',serif;font-size:40px;line-height:1.1;font-style:italic;background:linear-gradient(90deg,#364dab,#a8879c 55%,#cb1a1a);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-.k-dc-note{margin:8px 0 0;font-size:14px;color:#5b5b6e}
-.k-dc-card.k-pre .k-dc-sw{opacity:0;transform:translateY(26px) scale(.8)}
-.k-dc-card.k-in .k-dc-sw{opacity:1;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.9,.3,1.3)}
-.k-dc-card.k-in .k-dc-sw:nth-child(2){transition-delay:.15s}
-.k-dc-card.k-in .k-dc-sw:nth-child(3){transition-delay:.3s}
-.k-dc-card.k-pre{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
-.k-dc-card.k-pre.k-in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.k-dc-card.k-pre,.k-dc-card.k-pre .k-dc-sw{opacity:1;transform:none;transition:none}}
-@media(max-width:576px){.k-dc-card{padding:36px 16px 30px;border-radius:26px}.k-dc-swatches{gap:20px}.k-dc-dot{width:64px;height:64px}.k-dc-title{font-size:32px}}
-`}</style>
-                <div className="k-dc-card">
-                  <p className="k-dc-eyebrow">Our colour palette</p>
-                  <div className="k-dc-swatches">
-                    {[
-                      { name: "Royal Blue", hex: "#364dab" },
-                      { name: "Pearl White", hex: "#f0f1f4" },
-                      { name: "Crimson Red", hex: "#cb1a1a" },
-                    ].map((c) => (
-                      <div key={c.hex} className="k-dc-sw">
-                        <span className="k-dc-dot" style={{ "--c": c.hex } as CSSProperties} />
-                        <span className="k-dc-name">{c.name}</span>
-                        <span className="k-dc-hex">{c.hex}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="k-dc-sep">
-                    <i className="fas fa-heart" />
-                  </div>
-                  <h3 className="k-dc-title">Dress to Impress</h3>
-                  <p className="k-dc-note">We'd love to see you in these colours.</p>
                 </div>
               </div>
             </section>
@@ -2242,17 +2163,10 @@ function Index() {
 .k-footer-links a+a::before{content:"";position:absolute;left:-12px;top:50%;width:3px;height:3px;margin-top:-1.5px;border-radius:50%;background:rgba(243,217,164,.6)}
 .k-footer-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:#f3d9a4;transform:scaleX(0);transform-origin:left;transition:transform .35s}
 .k-footer-links a:hover::after{transform:scaleX(1)}
-.k-ft-credits{margin:44px -20px 0;padding:22px 20px 26px;border-top:1px solid rgba(243,217,164,.18);background:rgba(10,14,36,.35)}
-.k-ft-credits p{margin:0;font-size:13px;color:#ffffff99;letter-spacing:.3px}
-.k-ft-credits a{color:#ffffffcc;text-decoration:none;transition:color .25s}
-.k-ft-credits a:hover{color:#f3d9a4}
-.k-ft-credits .k-ft-dot{display:inline-block;width:3px;height:3px;margin:0 12px;border-radius:50%;background:rgba(243,217,164,.6);vertical-align:middle}
-.k-ft-credits .k-ft-cta{margin-top:8px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
 .k-ft-inner.k-pre{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .k-ft-inner.k-pre.k-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.k-ft-inner.k-pre{opacity:1;transform:none;transition:none}.k-ft-photo::before{animation:none}}
-@media(max-width:576px){.k-ft-credits .k-ft-dot{display:none}.k-ft-credits .k-ft-line{display:block;margin-bottom:4px}}
-`}</style>
+@media(max-width:576px){`}</style>
             <button
               className="k-ft-top"
               type="button"
@@ -2312,7 +2226,7 @@ function Index() {
                 </a>
                 <a
                   className="k-ft-btn line"
-                  href={mapsUrl(WEDDING_EVENTS[0]!.location)}
+                  href={WEDDING_EVENTS[0]!.map}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -2321,29 +2235,6 @@ function Index() {
               </div>
               <p className="k-footer-love">
                 With best compliments from Vrijesh &amp; Poppy
-              </p>
-            </div>
-            <div className="k-ft-credits" id="enquiry">
-              <p>
-                <span className="k-ft-line">
-                  © 2026{" "}
-                  <a href="/" target="_blank" rel="noreferrer">
-                    360invites
-                  </a>
-                  . All rights reserved
-                </span>
-                <span className="k-ft-dot" />
-                <span className="k-ft-line">
-                  Powered by{" "}
-                  <a href="/" target="_blank" rel="noreferrer">
-                    360invites
-                  </a>
-                </span>
-              </p>
-              <p className="k-ft-cta">
-                <a href="/digital-wedding-invites" target="_blank" rel="noreferrer">
-                  Create your own invitation at 360invites.com
-                </a>
               </p>
             </div>
           </footer>
