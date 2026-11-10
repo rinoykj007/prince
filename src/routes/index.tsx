@@ -953,7 +953,7 @@ function Index() {
                       Time
                     </span>
                     <span className="ov-ti-t text-[#ffffffe0] text-[13px] font-medium tracking-[0.2px]">
-                      Muhurtham 10:30 AM
+                      Muhurtham 11:00 AM
                     </span>
                   </div>
                   <div className="border-l border-solid border-l-[#9c6f2266] flex flex-1 flex-col gap-1 py-[11px] px-2.5">
@@ -1375,11 +1375,19 @@ function Index() {
                   <h1 className="font-[family-name:var(--heading-font)]! font-medium leading-[52px] m-0 p-0 relative text-center w-full text-[#060644] text-[32px] md:text-[52px]">
                     Moments of Love
                   </h1>
-                  <p className="mx-auto mt-6 max-w-[760px] px-4 text-[17px] leading-8 text-[#434343]">
-                    Sri. S. Ashokan (Late) &amp; Smt. S. Jaya, Revathy, Kilithattumukku, Varkala P.O,
-                    Thiruvananthapuram - 695141 (Mob: {CONTACT_PHONE}) cordially invite the honour of
-                    your esteemed presence and blessings with family on the auspicious occasion of
-                    the marriage of our son
+                  <p className="mx-auto mt-6 max-w-[620px] px-4 text-[19px] italic leading-8 text-[#6d1a2b]">
+                    “Love is the quiet promise to look in the same direction, together, for a
+                    lifetime.”
+                  </p>
+                  <p className="mx-auto mt-5 max-w-[760px] px-4 text-[17px] leading-8 text-[#434343]">
+                    With the blessings of the Almighty and our elders, Sri. S. Ashokan (Late) &amp;
+                    Smt. S. Jaya cordially invite the honour of your esteemed presence and
+                    blessings with family on the auspicious occasion of the marriage of our son
+                  </p>
+                  <p className="mx-auto mt-5 max-w-[620px] px-4 text-[17px] italic leading-8 text-[#9c6f22]">
+                    May the Almighty bless this union with a love that deepens, a joy that lasts and
+                    a home full of laughter. Your presence and blessings will make our celebration
+                    complete.
                   </p>
                 </div>
                 <div className="row flex flex-wrap justify-center! ml-[calc(-.5_*_var(--bs-gutter-x))] mr-[calc(-.5_*_var(--bs-gutter-x))] mt-[calc(-1_*_var(--bs-gutter-y))]">
@@ -1396,6 +1404,9 @@ function Index() {
                     </h4>
                     <p className="text-[16px] leading-7 m-0 p-0 text-[#434343]">
                       <SplitText text="Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala)" />
+                    </p>
+                    <p className="mx-auto mt-3 max-w-[360px] text-[15px] italic leading-7 text-[#6d1a2b]">
+                      “A good heart, a steady hand, and a love that grows stronger with every passing day. He walks beside her with kindness, laughter and a promise to always stand by her side.”
                     </p>
                   </div>
                   <div className="shrink-0 mt-(--bs-gutter-y) max-w-full pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full hidden invisible min-[992px]:flex-none min-[992px]:w-1/6 xl:block xl:visible">
@@ -1420,7 +1431,10 @@ function Index() {
                       <SplitText text="Malavika P Panayam" by="char" />
                     </h4>
                     <p className="text-[16px] leading-7 m-0 p-0 text-[#434343]">
-                      <SplitText text="Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S, Jaya Bhavan, Panayam, Pooyappally P.O, Kollam - 691537" />
+                      <SplitText text="Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S" />
+                    </p>
+                    <p className="mx-auto mt-3 max-w-[360px] text-[15px] italic leading-7 text-[#6d1a2b]">
+                      “Where there is love there is home, and she carries it with her wherever she goes. With grace, warmth and a gentle smile, she turns every ordinary moment into something beautiful.”
                     </p>
                   </div>
                 </div>
@@ -1526,7 +1540,7 @@ function Index() {
                         date: "A.J Prince",
                         title: "The Groom's Family",
                         icon: "fa-home",
-                        text: "Son of Late Sri. S. Ashokan and Smt. S. Jaya, Revathy, Kilithattumukku, Varkala P.O, Thiruvananthapuram - 695141. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala).",
+                        text: "Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala). “A good heart, a steady hand, and a love that grows stronger with every passing day. He walks beside her with kindness, laughter and a promise to always stand by her side.”",
                       },
                       {
                         img: "/site-assets/photos/photo-4.jpeg",
@@ -1534,7 +1548,7 @@ function Index() {
                         date: "Malavika P Panayam",
                         title: "The Bride's Family",
                         icon: "fa-heart",
-                        text: "Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S, Jaya Bhavan, Panayam, Pooyappally P.O, Kollam - 691537.",
+                        text: "Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S. “Where there is love there is home, and she carries it with her wherever she goes. With grace, warmth and a gentle smile, she turns every ordinary moment into something beautiful.”",
                       },
                     ].map((m) => (
                       <li key={m.title} className="k-tl-item">
