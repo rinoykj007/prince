@@ -4789,15 +4789,7 @@ body.theme-eight::before {
 }
 
 .event-details-section .col-lg-5 .propic::before {
-  width: 340px;
-  height: 340px;
-  position: absolute;
-  left: -20px;
-  top: -20px;
-  z-index: 100;
-  content: "";
-  background: url("/site-assets/87853dc78fa36f9a.png") 0% 0%/100% 100% no-repeat;
-  animation: 5s ease-in-out 0s infinite normal none running wobbleMove;
+  display: none;
 }
 
 .scrollingtext-wrap .text {

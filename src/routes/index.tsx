@@ -48,28 +48,32 @@ function SplitText({ text, by = "word" }: { text: string; by?: "char" | "word" }
 const ImportedFont = "font" as unknown as import("react").ElementType;
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "💍 Kevin \u0026 Anjali Wedding Invitation" }] }),
+  head: () => ({ meta: [{ title: "💍 Prince \u0026 Malavika Wedding Invitation" }] }),
   component: Index,
 });
 
-// Wedding reception: Tuesday, 02 February 2027, 12:30 PM IST
-const WEDDING_DATE = new Date("2027-02-02T12:30:00+05:30").getTime();
+// Wedding ceremony: Friday, 29 January 2027, muhurtham 10:30 AM IST
+const WEDDING_DATE = new Date("2027-01-29T10:30:00+05:30").getTime();
 
-const WEDDING_LOCATION = "Bolgatty Island, adjacent to Grand Hyatt, Bolgatty, Kochi";
+const CONTACT_PHONE = "9605019992";
+const mapsUrl = (q: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 const WEDDING_EVENTS = [
   {
     key: "ceremony",
     label: "Wedding Ceremony",
-    title: "Kevin & Anjali Wedding Ceremony",
-    start: "20270204T104500",
-    end: "20270204T124500",
+    title: "Prince & Malavika Wedding Ceremony",
+    start: "20270129T100000",
+    end: "20270129T110000",
+    location: "J's International Convention Centre, Kalluvathukkal, Kollam",
   },
   {
     key: "reception",
     label: "Wedding Reception",
-    title: "Kevin & Anjali Wedding Reception",
-    start: "20270202T123000",
-    end: "20270202T163000",
+    title: "Prince & Malavika Wedding Reception",
+    start: "20270130T173000",
+    end: "20270130T210000",
+    location: "Marine Pride Beach Resort, Edava, Varkala",
   },
 ];
 
@@ -209,7 +213,7 @@ function RsvpForm() {
           <rect x="3" y="5" width="18" height="16" rx="2" />
           <path d="M3 10h18M8 3v4M16 3v4m-8 9 3 3 5-5" />
         </svg>{" "}
-        Kindly respond by February 1, 2027
+        Kindly confirm your attendance
       </span>
       <div className="k-rv-field">
         <input
@@ -347,26 +351,28 @@ const GALLERY_PHOTOS = [
 
 const BIGDAY_CARDS = [
   {
-    key: "reception",
-    event: WEDDING_EVENTS[1]!,
-    icon: "/site-assets/ce0625b47b4ab8df.png",
-    tag: "Celebration",
-    title: "Wedding Reception",
-    day: "02",
-    month: "Feb 2027",
-    weekday: "Tuesday",
-    time: "12:30 PM Onwards",
-  },
-  {
     key: "ceremony",
     event: WEDDING_EVENTS[0]!,
     icon: "/site-assets/221c2e134e7a4701.png",
     tag: "The Vows",
     title: "Wedding Ceremony",
-    day: "04",
-    month: "Feb 2027",
-    weekday: "Thursday",
-    time: "10:45 AM",
+    day: "29",
+    month: "Jan 2027",
+    weekday: "Friday",
+    time: "Muhurtham 10:30 – 11:00 AM",
+    notes: ["Groom's party departs at 8:00 AM", "Welcoming the Groom at 10:00 AM"],
+  },
+  {
+    key: "reception",
+    event: WEDDING_EVENTS[1]!,
+    icon: "/site-assets/ce0625b47b4ab8df.png",
+    tag: "Celebration",
+    title: "Wedding Reception",
+    day: "30",
+    month: "Jan 2027",
+    weekday: "Saturday",
+    time: "5:30 PM – 9:00 PM",
+    notes: ["We request the pleasure of your company at the wedding reception of our son"],
   },
 ];
 
@@ -376,8 +382,8 @@ function googleCalendarUrl(e: (typeof WEDDING_EVENTS)[number]) {
     text: e.title,
     dates: `${e.start}/${e.end}`,
     ctz: "Asia/Kolkata",
-    details: `${e.label} - https://360invites.com/kevin-weds-anjali-forever`,
-    location: WEDDING_LOCATION,
+    details: e.label,
+    location: e.location,
   });
   return `https://calendar.google.com/calendar/render?${p.toString()}`;
 }
@@ -386,14 +392,14 @@ function icsUrl(e: (typeof WEDDING_EVENTS)[number]) {
   const ics = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Kevin & Anjali Wedding//EN",
+    "PRODID:-//Prince & Malavika Wedding//EN",
     "BEGIN:VEVENT",
-    `UID:${e.key}@kevin-anjali-wedding`,
+    `UID:${e.key}@prince-malavika-wedding`,
     `DTSTAMP:${e.start}`,
     `DTSTART;TZID=Asia/Kolkata:${e.start}`,
     `DTEND;TZID=Asia/Kolkata:${e.end}`,
     `SUMMARY:${e.title}`,
-    `LOCATION:${WEDDING_LOCATION.replace(/,/g, "\\,")}`,
+    `LOCATION:${e.location.replace(/,/g, "\\,")}`,
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
@@ -898,7 +904,7 @@ function Index() {
                     <img
                       className="border-[2.5px] border-solid border-[#e66dba8c] rounded-[50%] shadow-[rgba(0,0,0,0.45)_0px_6px_24px,rgba(230,109,186,0.12)_0px_0px_0px_3px] block h-[94px] object-cover align-middle w-[94px] [object-position:center_top] max-[420px]:h-[76px] max-[420px]:w-[76px] max-w-none"
                       src="/site-assets/photos/photo-2.jpeg"
-                      alt="Kevin Mathew"
+                      alt="A.J Prince"
                     />
                     <div className="border-[1.5px] border-solid border-[#e66dbabf] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_0s_infinite_normal_none_running_ringPulse]" />
                     <div className="border-[1.5px] border-solid border-[#e66dba73] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_1.2s_infinite_normal_none_running_ringPulse]" />
@@ -912,7 +918,7 @@ function Index() {
                     <img
                       className="border-[2.5px] border-solid border-[#e66dba8c] rounded-[50%] shadow-[rgba(0,0,0,0.45)_0px_6px_24px,rgba(230,109,186,0.12)_0px_0px_0px_3px] block h-[94px] object-cover align-middle w-[94px] [object-position:center_top] max-[420px]:h-[76px] max-[420px]:w-[76px] max-w-none"
                       src="/site-assets/photos/photo-4.jpeg"
-                      alt="Anjali Menon"
+                      alt="Malavika P Panayam"
                     />
                     <div className="border-[1.5px] border-solid border-[#e66dbabf] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_0s_infinite_normal_none_running_ringPulse]" />
                     <div className="border-[1.5px] border-solid border-[#e66dba73] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_1.2s_infinite_normal_none_running_ringPulse]" />
@@ -922,11 +928,11 @@ function Index() {
               {/* Names */}
               <div className="ov-names mb-1 opacity-100 translate-y-0 [animation:0.8s_ease_1.15s_1_normal_both_running_fadeUp]">
                 <h1 className="text-white! font-[family-name:Roboto,sans-serif]! font-normal! tracking-[0.5px]! m-0! p-0! text-[30px]! leading-[33px]! [animation:3.5s_ease-in-out_2s_infinite_normal_none_running_nameGlow]! [text-shadow:rgba(230,109,186,0.35)_0px_2px_24px,rgba(6,6,68,0.5)_0px_4px_48px]! md:text-[46px]! md:leading-[50.6px]!">
-                  <span className="whitespace-nowrap">Kevin</span>{" "}
+                  <span className="whitespace-nowrap">Prince</span>{" "}
                   <em className="[background:linear-gradient(135deg,rgb(240,160,208),rgb(230,109,186))_text] italic text-[24px] py-0 px-[3.6px] [-webkit-text-fill-color:transparent] [vertical-align:1.2px] md:text-[36.8px] md:py-0 md:px-[5.52px] md:[vertical-align:1.84px]">
                     &amp;
                   </em>{" "}
-                  <span className="whitespace-nowrap">Anjali</span>
+                  <span className="whitespace-nowrap">Malavika</span>
                 </h1>
               </div>
               {/* Divider */}
@@ -936,10 +942,10 @@ function Index() {
               {/* Date & Time */}
               <div className="mb-[22px] opacity-100 translate-y-0 [animation:0.8s_ease_1.35s_1_normal_both_running_fadeUp]">
                 <p className="ov-date-tag text-[#e66dbaf2]! text-[10px]! tracking-[3.5px] leading-[1.4]! mb-1.5 mt-0 uppercase">
-                  Wedding Reception
+                  Wedding Ceremony
                 </p>
                 <p className="ov-date-main text-site-import-background! text-[16px]! font-semibold tracking-[0.3px] leading-[1.4]! mb-3 mt-0">
-                  Tuesday, 02 February 2027
+                  Friday, 29 January 2027
                 </p>
                 <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#ffffff0d] border border-solid border-[#ffffff1a] rounded-[14px] flex overflow-hidden">
                   <div className="flex flex-1 flex-col gap-1 py-[11px] px-2.5">
@@ -947,7 +953,7 @@ function Index() {
                       Time
                     </span>
                     <span className="ov-ti-t text-[#ffffffe0] text-[13px] font-medium tracking-[0.2px]">
-                      12:30 PM Onwards
+                      Muhurtham 10:30 AM
                     </span>
                   </div>
                   <div className="border-l border-solid border-l-[#ffffff1a] flex flex-1 flex-col gap-1 py-[11px] px-2.5">
@@ -955,7 +961,7 @@ function Index() {
                       Venue
                     </span>
                     <span className="ov-ti-t text-[#ffffffe0] text-[13px] font-medium tracking-[0.2px]">
-                      Bolgatty Island, adjacent to Grand Hyatt, Bolgatty, Kochi
+                      J's International Convention Centre, Kalluvathukkal, Kollam
                     </span>
                   </div>
                 </div>
@@ -984,7 +990,7 @@ function Index() {
       ═══════════════════════════════════════════════ */}
           <a
             className="bg-[#37bd69] border-current rounded-[50%] border-none bottom-[30px] cursor-pointer text-[22px] h-[60px] outline-0! p-0 fixed right-[30px] text-center underline duration-300 w-[60px] z-999 text-white leading-[50px] [border-image:none] [border-width:medium] hover:text-(--ButtonTextColor) hover:no-underline max-[520px]:bottom-[15px] max-[520px]:h-[50px] max-[520px]:right-[15px] max-[520px]:w-[50px] md:leading-[60px]"
-            href="https://api.whatsapp.com/send?text=%F0%9F%92%8D%E2%9C%A8+%2AKevin+Weds+Anjali%2A+%E2%9C%A8%F0%9F%92%8D%0A%0AYou+are+lovingly+invited+to+join+us+on+our+special+day+%F0%9F%A4%8D%0A%0A%F0%9F%8E%89+%2AWedding+Ceremony%3A%2A%0A%F0%9F%97%93%EF%B8%8F+Thursday%2C+04+Feb+2027%0A%E2%8F%B0+10%3A45+AM%0A%0A%F0%9F%8E%89+%2AWedding+Reception%3A%2A%0A%F0%9F%97%93%EF%B8%8F+Tuesday%2C+02+Feb+2027%0A%E2%8F%B0+12%3A30+PM+Onwards%0A%0A%F0%9F%91%89+%2AView+Invitation%3A%2A%0Ahttps%3A%2F%2F360invites.com%2Fkevin-weds-anjali-forever%0A%0AWith+love+%26+gratitude+%E2%9D%A4%EF%B8%8F"
+            href="https://api.whatsapp.com/send?text=%F0%9F%92%8D%E2%9C%A8+*Prince+%26+Malavika*+%E2%9C%A8%F0%9F%92%8D%0A%0AYou+are+lovingly+invited+to+join+us+on+our+special+day+%F0%9F%A4%8D%0A%0A%F0%9F%8E%89+*Wedding+Ceremony%3A*%0A%F0%9F%97%93%EF%B8%8F+Friday%2C+29+Jan+2027%0A%E2%8F%B0+Muhurtham+10%3A30+AM+-+11%3A00+AM%0A%F0%9F%93%8D+J's+International+Convention+Centre%2C+Kalluvathukkal%2C+Kollam%0A%0A%F0%9F%8E%89+*Wedding+Reception%3A*%0A%F0%9F%97%93%EF%B8%8F+Saturday%2C+30+Jan+2027%0A%E2%8F%B0+5%3A30+PM+-+9%3A00+PM%0A%F0%9F%93%8D+Marine+Pride+Beach+Resort%2C+Edava%2C+Varkala%0A%0AWith+love+%26+gratitude+%E2%9D%A4%EF%B8%8F"
             target="_blank"
             title="Share on WhatsApp"
           >
@@ -1069,7 +1075,7 @@ function Index() {
                   lineHeight: 1.1,
                 }}
               >
-                Kevin &amp; Anjali
+                Prince &amp; Malavika
               </div>
               <div
                 style={{
@@ -1095,7 +1101,7 @@ function Index() {
               {[
                 ["#home", "Home", "fa-home"],
                 ["#happycouples", "Happy Couple", "fa-heart"],
-                ["#ourstory", "Our Story", "fa-book-open"],
+                ["#ourstory", "Families", "fa-book-open"],
                 ["#whenandwhere", "When & Where", "fa-map-marker-alt"],
                 ["#dresscode", "Dress Code", "fa-tshirt"],
                 ["#gallery", "Gallery", "fa-images"],
@@ -1252,9 +1258,9 @@ function Index() {
                     we’re getting married
                   </h6>
                   <h1 className="font-[family-name:var(--heading-font)]! font-medium p-0 text-white text-[32px] leading-[38.4px] mt-0 mr-0 mb-[15px] ml-0 [text-shadow:rgba(0,0,0,0.6)_2px_4px_8px] md:text-[60px] md:leading-[72px] md:mt-0 md:mr-0 md:mb-[60px] md:ml-0">
-                    <span className="inline align-baseline whitespace-nowrap w-auto">Kevin</span>{" "}
+                    <span className="inline align-baseline whitespace-nowrap w-auto">Prince</span>{" "}
                     &amp;{" "}
-                    <span className="inline align-baseline whitespace-nowrap w-auto">Anjali</span>
+                    <span className="inline align-baseline whitespace-nowrap w-auto">Malavika</span>
                   </h1>
                 </div>
                 <div className="row flex flex-wrap justify-center! ml-[calc(-.5_*_var(--bs-gutter-x))] mr-[calc(-.5_*_var(--bs-gutter-x))] mt-[calc(-1_*_var(--bs-gutter-y))]">
@@ -1318,7 +1324,7 @@ function Index() {
                     <img
                       className="h-screen object-cover align-middle w-full max-[520px]:h-screen max-[520px]:pb-0 max-[980px]:h-[600px] max-[980px]:pb-0 max-w-none"
                       src="/site-assets/photos/photo-9.jpeg"
-                      alt={"Kevin & Anjali"}
+                      alt={"Prince & Malavika"}
                     />
                   </div>
                 </div>
@@ -1327,7 +1333,7 @@ function Index() {
                     <img
                       className="h-screen object-cover align-middle w-full max-[520px]:h-screen max-[520px]:pb-0 max-[980px]:h-[600px] max-[980px]:pb-0 max-w-none"
                       src="/site-assets/photos/photo-1.jpeg"
-                      alt={"Kevin & Anjali"}
+                      alt={"Prince & Malavika"}
                     />
                   </div>
                 </div>
@@ -1336,7 +1342,7 @@ function Index() {
                     <img
                       className="h-screen object-cover align-middle w-full max-[520px]:h-screen max-[520px]:pb-0 max-[980px]:h-[600px] max-[980px]:pb-0 max-w-none"
                       src="/site-assets/photos/photo-8.jpeg"
-                      alt={"Kevin & Anjali"}
+                      alt={"Prince & Malavika"}
                     />
                   </div>
                 </div>
@@ -1345,7 +1351,7 @@ function Index() {
                     <img
                       className="h-screen object-cover align-middle w-full max-[520px]:h-screen max-[520px]:pb-0 max-[980px]:h-[600px] max-[980px]:pb-0 max-w-none"
                       src="/site-assets/photos/photo-2.jpeg"
-                      alt={"Kevin & Anjali"}
+                      alt={"Prince & Malavika"}
                     />
                   </div>
                 </div>
@@ -1369,6 +1375,12 @@ function Index() {
                   <h1 className="font-[family-name:var(--heading-font)]! font-medium leading-[52px] m-0 p-0 relative text-center w-full text-[#060644] text-[32px] md:text-[52px]">
                     Moments of Love
                   </h1>
+                  <p className="mx-auto mt-6 max-w-[760px] px-4 text-[17px] leading-8 text-[#434343]">
+                    Sri. S. Ashokan (Late) &amp; Smt. S. Jaya, Revathy, Kilithattumukku, Varkala P.O,
+                    Thiruvananthapuram - 695141 (Mob: {CONTACT_PHONE}) cordially invite the honour of
+                    your esteemed presence and blessings with family on the auspicious occasion of
+                    the marriage of our son
+                  </p>
                 </div>
                 <div className="row flex flex-wrap justify-center! ml-[calc(-.5_*_var(--bs-gutter-x))] mr-[calc(-.5_*_var(--bs-gutter-x))] mt-[calc(-1_*_var(--bs-gutter-y))]">
                   <div className="col-lg-5 shrink-0 mt-(--bs-gutter-y) max-w-full w-full py-0! px-3! min-[992px]:flex-none min-[992px]:w-[41.6667%] xl:py-0! xl:px-12!">
@@ -1376,14 +1388,14 @@ function Index() {
                       <img
                         className="rounded-[50%] h-full object-cover align-middle w-full max-w-none"
                         src="/site-assets/photos/photo-2.jpeg"
-                        alt="Kevin Mathew"
+                        alt="A.J Prince"
                       />
                     </div>
                     <h4 className="font-[family-name:Roboto,sans-serif]! text-[24px] font-medium leading-[1.2] mt-0 mr-0 mb-2.5 ml-0 p-0 w-full text-[#060644]">
-                      <SplitText text="Kevin Mathew" by="char" />
+                      <SplitText text="A.J Prince" by="char" />
                     </h4>
                     <p className="text-[16px] leading-7 m-0 p-0 text-[#434343]">
-                      <SplitText text="Kevin Mathew son of Mathew Thomas and Susan Mathew" />
+                      <SplitText text="Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala)" />
                     </p>
                   </div>
                   <div className="shrink-0 mt-(--bs-gutter-y) max-w-full pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full hidden invisible min-[992px]:flex-none min-[992px]:w-1/6 xl:block xl:visible">
@@ -1401,14 +1413,14 @@ function Index() {
                       <img
                         className="rounded-[50%] h-full object-cover align-middle w-full max-w-none"
                         src="/site-assets/photos/photo-4.jpeg"
-                        alt="Anjali Menon"
+                        alt="Malavika P Panayam"
                       />
                     </div>
                     <h4 className="font-[family-name:Roboto,sans-serif]! text-[24px] font-medium leading-[1.2] mt-0 mr-0 mb-2.5 ml-0 p-0 w-full text-[#060644]">
-                      <SplitText text="Anjali Menon" by="char" />
+                      <SplitText text="Malavika P Panayam" by="char" />
                     </h4>
                     <p className="text-[16px] leading-7 m-0 p-0 text-[#434343]">
-                      <SplitText text="Anjali Menon daughter of Hari Menon and Deepa Menon" />
+                      <SplitText text="Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S, Jaya Bhavan, Panayam, Pooyappally P.O, Kollam - 691537" />
                     </p>
                   </div>
                 </div>
@@ -1445,11 +1457,11 @@ function Index() {
                     </span>
                   </span>
                   <span className="inline-block font-[family-name:var(--headingfont)]! font-bold h-auto mt-2.5 mr-0 mb-0 ml-0 relative uppercase w-auto text-[#060644] text-[60px] leading-[60px] pt-0 pr-[130px] pb-0 pl-0 [-webkit-text-stroke-color:var(--BlueColor)] [-webkit-text-stroke-width:2px] md:text-[120px] md:leading-[100px] md:pt-0 md:pr-[190px] md:pb-0 md:pl-0">
-                    Kevin{" "}
+                    Prince{" "}
                     <ImportedFont className="relative top-[-15px] text-[45px] max-[520px]:-top-1.5 md:text-[80px]">
                       ❤️
                     </ImportedFont>{" "}
-                    Anjali{" "}
+                    Malavika{" "}
                     <span className="k-mq-pill">
                       <i className="fas fa-star" />
                     </span>
@@ -1475,11 +1487,11 @@ function Index() {
                     </span>
                   </span>
                   <span className="inline-block font-[family-name:var(--headingfont)]! font-bold h-auto mt-2.5 mr-0 mb-0 ml-0 relative uppercase w-auto text-[#060644] text-[60px] leading-[60px] pt-0 pr-[130px] pb-0 pl-0 [-webkit-text-stroke-color:var(--BlueColor)] [-webkit-text-stroke-width:2px] md:text-[120px] md:leading-[100px] md:pt-0 md:pr-[190px] md:pb-0 md:pl-0">
-                    Kevin{" "}
+                    Prince{" "}
                     <ImportedFont className="relative top-[-15px] text-[45px] max-[520px]:-top-1.5 md:text-[80px]">
                       ❤️
                     </ImportedFont>{" "}
-                    Anjali{" "}
+                    Malavika{" "}
                     <span className="k-mq-pill">
                       <i className="fas fa-star" />
                     </span>
@@ -1500,37 +1512,29 @@ function Index() {
                 <div className="w-full mt-20 mr-0 mb-0 ml-0 md:mt-[100px] md:mr-0 md:mb-0 md:ml-0">
                   <div className="inline-block w-full mt-0 mr-0 mb-[45px] ml-0 xl:mt-0 xl:mr-0 xl:mb-5 xl:ml-0">
                     <h6 className="font-[family-name:Roboto,sans-serif]! text-[14px] font-medium tracking-[4px] leading-[1.2] mt-0 mr-0 mb-1.5 ml-0 -mb-1.5! p-0 relative text-center uppercase text-[#a8879c]">
-                      our story
+                      our families
                     </h6>
                     <h1 className="font-[family-name:var(--heading-font)]! font-medium leading-[52px] m-0 p-0 relative text-center w-full text-[#060644] text-[32px] md:text-[52px]">
-                      A Journey of Love
+                      With Family Blessings
                     </h1>
                   </div>
                   <ol className="k-timeline">
                     {[
                       {
-                        img: "/site-assets/photos/photo-3.jpeg",
-                        year: "2023",
-                        date: "02 Aug 2023",
-                        title: "The First Meeting",
-                        icon: "fa-handshake",
-                        text: "The day our paths crossed, neither of us knew that a simple meeting would become the beginning of something beautiful. A casual conversation turned into a special memory, and slowly, we began to discover the magic of being together.",
+                        img: "/site-assets/photos/photo-2.jpeg",
+                        year: "Groom",
+                        date: "A.J Prince",
+                        title: "The Groom's Family",
+                        icon: "fa-home",
+                        text: "Son of Late Sri. S. Ashokan and Smt. S. Jaya, Revathy, Kilithattumukku, Varkala P.O, Thiruvananthapuram - 695141. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala).",
                       },
                       {
                         img: "/site-assets/photos/photo-4.jpeg",
-                        year: "2025",
-                        date: "03 Oct 2025",
-                        title: "A Love That Grew",
+                        year: "Bride",
+                        date: "Malavika P Panayam",
+                        title: "The Bride's Family",
                         icon: "fa-heart",
-                        text: "From little conversations to unforgettable moments, our bond grew stronger with every passing day. We shared laughter, supported each other through challenges, and discovered that love is not just about finding the right person, but choosing each other every day.",
-                      },
-                      {
-                        img: "/site-assets/photos/photo-5.jpeg",
-                        year: "2026",
-                        date: "13 May 2026",
-                        title: "Forever Begins",
-                        icon: "fa-ring",
-                        text: "And now, we are ready to begin our most beautiful chapter yet. With our families' blessings and hearts full of love, Kevin and Anjali are stepping into forever, ready to create a lifetime of memories together.",
+                        text: "Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S, Jaya Bhavan, Panayam, Pooyappally P.O, Kollam - 691537.",
                       },
                     ].map((m) => (
                       <li key={m.title} className="k-tl-item">
@@ -1635,6 +1639,11 @@ function Index() {
                         </svg>{" "}
                         {c.time}
                       </div>
+                      {c.notes.map((n) => (
+                        <p key={n} className="k-ev-info" style={{ margin: "0 0 8px" }}>
+                          {n}
+                        </p>
+                      ))}
                       <p className="k-ev-info">
                         <svg
                           width="16"
@@ -1650,14 +1659,14 @@ function Index() {
                           <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.800 12 21 12 21z" />
                           <circle cx="12" cy="9.5" r="2.5" />
                         </svg>
-                        {WEDDING_LOCATION}
+                        {c.event.location}
                         <br />
                         <i className="fas fa-phone" />
-                        <a href="tel:+916282632763">+91 6282632763</a>
+                        <a href={`tel:+91${CONTACT_PHONE}`}>+91 {CONTACT_PHONE}</a>
                       </p>
                       <a
                         className="k-ev-btn"
-                        href="https://maps.app.goo.gl/45993AjEmpPMr5PC8"
+                        href={mapsUrl(c.event.location)}
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -1906,7 +1915,7 @@ function Index() {
                           <div className="k-gl-corners" />
                           <div className="k-gl-badge">
                             <i className="fas fa-heart" />
-                            Kevin &amp; Anjali
+                            Prince &amp; Malavika
                           </div>
                           {GALLERY_PHOTOS.map((g, i) => (
                             <div key={g.src} className={`k-gl-slide${i === galIdx ? " on" : ""}`}>
@@ -2090,7 +2099,7 @@ function Index() {
                       <img
                         className="border-0 h-auto! inset-0 max-w-full absolute align-middle w-[936px]"
                         id="ytPlayer"
-                        alt="Tijo Neena Betrothal"
+                        alt="Prince and Malavika"
                         src="/site-assets/photos/photo-6.jpeg"
                       />
                     </div>
@@ -2245,7 +2254,7 @@ function Index() {
             </button>
             <div className="k-ft-inner">
               <div className="k-ft-photo">
-                <img src={GALLERY_PHOTOS[0]!.src} alt="Kevin and Anjali" />
+                <img src={GALLERY_PHOTOS[0]!.src} alt="Prince and Malavika" />
                 <span>
                   <svg
                     width="16"
@@ -2258,13 +2267,13 @@ function Index() {
                   </svg>
                 </span>
               </div>
-              <div className="k-footer-word">Kevin &amp; Anjali</div>
-              <p className="k-footer-sub">02 · 02 · 2027 &nbsp;—&nbsp; Bolgatty Island, Kochi</p>
+              <div className="k-footer-word">Prince &amp; Malavika</div>
+              <p className="k-footer-sub">29 · 01 · 2027 &nbsp;—&nbsp; Kalluvathukkal, Kollam</p>
               <div className="k-ft-orn">
                 <span />
               </div>
               <div className="k-footer-links">
-                <a href="#ourstory">Our Story</a>
+                <a href="#ourstory">Families</a>
                 <a href="#whenandwhere">When &amp; Where</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#rsvp">RSVP</a>
@@ -2282,7 +2291,7 @@ function Index() {
                 </a>
                 <a
                   className="k-ft-btn line"
-                  href="https://maps.app.goo.gl/45993AjEmpPMr5PC8"
+                  href={mapsUrl(WEDDING_EVENTS[0]!.location)}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -2290,7 +2299,7 @@ function Index() {
                 </a>
               </div>
               <p className="k-footer-love">
-                Made with <i className="fas fa-heart" /> for our favourite people
+                With best compliments from Vrijesh &amp; Poppy
               </p>
             </div>
             <div className="k-ft-credits" id="enquiry">
