@@ -884,7 +884,7 @@ function Index() {
                   </span>
                 </div>
                 <div className="items-baseline flex justify-center m-0">
-                  <span className="text-[#e8d2aa] font-[family-name:Sacramento,cursive] text-[28px] tracking-[0px] leading-none mr-[5px]">
+                  <span className="ov-the font-[family-name:Sacramento,cursive] text-[28px] tracking-[0px] leading-none mr-[5px]">
                     the
                   </span>
                   <span className="ov-std-date text-[#f0dfc5] text-[30px] font-extrabold tracking-[6px] leading-[1.1] uppercase [text-shadow:rgba(230,180,100,0.25)_0px_1px_12px]">
@@ -902,12 +902,12 @@ function Index() {
                 <div className="items-center flex flex-col gap-[9px]">
                   <div className="shrink-0 h-[94px] relative w-[94px] max-[420px]:h-[76px] max-[420px]:w-[76px]">
                     <img
-                      className="border-[2.5px] border-solid border-[#e66dba8c] rounded-[50%] shadow-[rgba(0,0,0,0.45)_0px_6px_24px,rgba(230,109,186,0.12)_0px_0px_0px_3px] block h-[94px] object-cover align-middle w-[94px] [object-position:center_top] max-[420px]:h-[76px] max-[420px]:w-[76px] max-w-none"
+                      className="border-[2.5px] border-solid border-[#9c6f22] rounded-[50%] shadow-[rgba(0,0,0,0.45)_0px_6px_24px,rgba(230,109,186,0.12)_0px_0px_0px_3px] block h-[94px] object-cover align-middle w-[94px] [object-position:center_top] max-[420px]:h-[76px] max-[420px]:w-[76px] max-w-none"
                       src="/site-assets/photos/photo-2.jpeg"
                       alt="A.J Prince"
                     />
-                    <div className="border-[1.5px] border-solid border-[#e66dbabf] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_0s_infinite_normal_none_running_ringPulse]" />
-                    <div className="border-[1.5px] border-solid border-[#e66dba73] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_1.2s_infinite_normal_none_running_ringPulse]" />
+                    <div className="border-[1.5px] border-solid border-[#9c6f22bf] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_0s_infinite_normal_none_running_ringPulse]" />
+                    <div className="border-[1.5px] border-solid border-[#9c6f2273] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_1.2s_infinite_normal_none_running_ringPulse]" />
                   </div>
                 </div>
                 <div className="ov-amp [background:linear-gradient(140deg,rgb(240,160,208),rgb(230,109,186),rgb(168,135,156),rgb(230,109,186),rgb(240,160,208))_0%_0%/300%_300%_text] shrink-0 -mt-3.5 text-[42px]! leading-[42px] [-webkit-text-fill-color:transparent] [animation:4s_ease_0s_infinite_normal_none_running_ampShimmer] [filter:drop-shadow(rgba(230,109,186,0.5)_0px_0px_14px)] md:text-[54px]! md:leading-[54px]">
@@ -916,18 +916,18 @@ function Index() {
                 <div className="items-center flex flex-col gap-[9px]">
                   <div className="shrink-0 h-[94px] relative w-[94px] max-[420px]:h-[76px] max-[420px]:w-[76px]">
                     <img
-                      className="border-[2.5px] border-solid border-[#e66dba8c] rounded-[50%] shadow-[rgba(0,0,0,0.45)_0px_6px_24px,rgba(230,109,186,0.12)_0px_0px_0px_3px] block h-[94px] object-cover align-middle w-[94px] [object-position:center_top] max-[420px]:h-[76px] max-[420px]:w-[76px] max-w-none"
+                      className="border-[2.5px] border-solid border-[#9c6f22] rounded-[50%] shadow-[rgba(0,0,0,0.45)_0px_6px_24px,rgba(230,109,186,0.12)_0px_0px_0px_3px] block h-[94px] object-cover align-middle w-[94px] [object-position:center_top] max-[420px]:h-[76px] max-[420px]:w-[76px] max-w-none"
                       src="/site-assets/photos/photo-4.jpeg"
                       alt="Malavika P Panayam"
                     />
-                    <div className="border-[1.5px] border-solid border-[#e66dbabf] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_0s_infinite_normal_none_running_ringPulse]" />
-                    <div className="border-[1.5px] border-solid border-[#e66dba73] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_1.2s_infinite_normal_none_running_ringPulse]" />
+                    <div className="border-[1.5px] border-solid border-[#9c6f22bf] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_0s_infinite_normal_none_running_ringPulse]" />
+                    <div className="border-[1.5px] border-solid border-[#9c6f2273] rounded-[50%] inset-[-7px] absolute [animation:2.4s_ease-out_1.2s_infinite_normal_none_running_ringPulse]" />
                   </div>
                 </div>
               </div>
               {/* Names */}
               <div className="ov-names mb-1 opacity-100 translate-y-0 [animation:0.8s_ease_1.15s_1_normal_both_running_fadeUp]">
-                <h1 className="text-white! font-[family-name:Roboto,sans-serif]! font-normal! tracking-[0.5px]! m-0! p-0! text-[30px]! leading-[33px]! [animation:3.5s_ease-in-out_2s_infinite_normal_none_running_nameGlow]! [text-shadow:rgba(230,109,186,0.35)_0px_2px_24px,rgba(6,6,68,0.5)_0px_4px_48px]! md:text-[46px]! md:leading-[50.6px]!">
+                <h1 className="text-[#6d1a2b]! font-[family-name:Roboto,sans-serif]! font-normal! tracking-[0.5px]! m-0! p-0! text-[30px]! leading-[33px]! md:text-[38px]! md:leading-[44px]!">
                   <span className="whitespace-nowrap">Prince</span>{" "}
                   <em className="[background:linear-gradient(135deg,rgb(240,160,208),rgb(230,109,186))_text] italic text-[24px] py-0 px-[3.6px] [-webkit-text-fill-color:transparent] [vertical-align:1.2px] md:text-[36.8px] md:py-0 md:px-[5.52px] md:[vertical-align:1.84px]">
                     &amp;
@@ -941,13 +941,13 @@ function Index() {
               </div>
               {/* Date & Time */}
               <div className="mb-[22px] opacity-100 translate-y-0 [animation:0.8s_ease_1.35s_1_normal_both_running_fadeUp]">
-                <p className="ov-date-tag text-[#e66dbaf2]! text-[10px]! tracking-[3.5px] leading-[1.4]! mb-1.5 mt-0 uppercase">
+                <p className="ov-date-tag text-[#9c6f22]! text-[10px]! tracking-[3.5px] leading-[1.4]! mb-1.5 mt-0 uppercase">
                   Wedding Ceremony
                 </p>
-                <p className="ov-date-main text-site-import-background! text-[16px]! font-semibold tracking-[0.3px] leading-[1.4]! mb-3 mt-0">
+                <p className="ov-date-main text-[#4a1420]! text-[16px]! font-semibold tracking-[0.3px] leading-[1.4]! mb-3 mt-0">
                   Friday, 29 January 2027
                 </p>
-                <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#ffffff0d] border border-solid border-[#ffffff1a] rounded-[14px] flex overflow-hidden">
+                <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#9c6f2214] border border-solid border-[#9c6f2266] rounded-[14px] flex overflow-hidden">
                   <div className="flex flex-1 flex-col gap-1 py-[11px] px-2.5">
                     <span className="ov-ti-ev text-[#e66dbad9] text-[9px] font-semibold tracking-[2.5px] uppercase">
                       Time
@@ -956,7 +956,7 @@ function Index() {
                       Muhurtham 10:30 AM
                     </span>
                   </div>
-                  <div className="border-l border-solid border-l-[#ffffff1a] flex flex-1 flex-col gap-1 py-[11px] px-2.5">
+                  <div className="border-l border-solid border-l-[#9c6f2266] flex flex-1 flex-col gap-1 py-[11px] px-2.5">
                     <span className="ov-ti-ev text-[#e66dbad9] text-[9px] font-semibold tracking-[2.5px] uppercase">
                       Venue
                     </span>
@@ -969,7 +969,7 @@ function Index() {
               {/* CTA */}
               <div className="opacity-100 translate-y-[3.55271e-15px] [animation:0.8s_ease_1.5s_1_normal_both_running_fadeUp]">
                 <button
-                  className="items-center! [background:var(--ButtonColor,linear-gradient(135deg,#323c60,#1c2545))]! border-current! rounded-[50px]! border-none! shadow-[rgba(50,60,96,0.55)_0px_5px_20px] text-white! cursor-pointer flex! font-semibold gap-2.5! justify-center! tracking-[1.2px] m-0 outline-0! overflow-hidden relative! normal-case w-full! text-[14px]! leading-[21px] py-[15px]! px-6! [animation:2.8s_ease-in-out_2.2s_infinite_normal_none_running_btnGlow] [appearance:button] [border-image:none]! [border-width:medium]! [font-family:inherit] [transition:transform_0.25s,box-shadow_0.25s] active:scale-97 hover:shadow-[rgba(230,109,186,0.45)_0px_10px_32px]! hover:translate-y-[-3px] md:text-[15px]! md:leading-[22.5px] md:py-[17px]! md:px-8!"
+                  className="items-center! [background:#6d1a2b]! border-current! rounded-[50px]! border-none! shadow-[rgba(109,26,43,0.35)_0px_8px_22px] text-[#fbf3e4]! cursor-pointer flex! font-semibold gap-2.5! justify-center! tracking-[1.2px] m-0 outline-0! overflow-hidden relative! normal-case w-full! text-[14px]! leading-[21px] py-[15px]! px-6! [animation:2.8s_ease-in-out_2.2s_infinite_normal_none_running_btnGlow] [appearance:button] [border-image:none]! [border-width:medium]! [font-family:inherit] [transition:transform_0.25s,box-shadow_0.25s] active:scale-97 hover:shadow-[rgba(109,26,43,0.45)_0px_10px_32px]! hover:translate-y-[-3px] md:text-[15px]! md:leading-[22.5px] md:py-[17px]! md:px-8!"
                   id="ov-cta"
                   onClick={() => setOpened(true)}
                 >
@@ -980,7 +980,7 @@ function Index() {
                   {"\n      "}
                 </button>
               </div>
-              <p className="ov-hint text-[#ffffff4d]! text-[11px]! tracking-[0.4px]! leading-normal! mt-3.5! mr-0! mb-0! ml-0! opacity-100 translate-y-0 [animation:0.8s_ease_1.7s_1_normal_both_running_fadeUp]!">
+              <p className="ov-hint text-[#4a142099]! text-[11px]! tracking-[0.4px]! leading-normal! mt-3.5! mr-0! mb-0! ml-0! opacity-100 translate-y-0 [animation:0.8s_ease_1.7s_1_normal_both_running_fadeUp]!">
                 A love story worth celebrating — your invitation is inside ✨
               </p>
             </div>

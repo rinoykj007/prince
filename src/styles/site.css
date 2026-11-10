@@ -15317,3 +15317,26 @@ body.theme-eight::before {
 .pg-story-more[aria-expanded="true"]::after {
   content: " ▴";
 }
+
+/* Save the Date overlay: ivory, gold and maroon palette */
+#ov-root { background: linear-gradient(160deg,#fbf3e4 0%,#f4e6cb 55%,#ecd6ae 100%) !important; }
+#ov-root #ov-card { background: rgba(255,255,255,.55) !important; border: 1px solid rgba(156,111,34,.4) !important; box-shadow: 0 18px 50px rgba(109,26,43,.18), 0 0 0 1px rgba(255,255,255,.6) inset !important; -webkit-backdrop-filter: blur(10px) !important; backdrop-filter: blur(10px) !important; }
+#ov-card::before { background: linear-gradient(135deg,rgba(184,137,58,.55) 0%,transparent 40%,rgba(109,26,43,.3) 100%) !important; }
+#ov-root .ov-std-save, #ov-root .ov-std-date { color: #9c6f22 !important; text-shadow: none !important; }
+#ov-root .ov-the { color: #6d1a2b !important; }
+#ov-root .ov-amp { background: linear-gradient(140deg,#c9a24f,#9c6f22,#c9a24f) 0 0/300% 300% text !important; filter: none !important; }
+#ov-root .ov-names h1 { color: #6d1a2b !important; text-shadow: none !important; animation: none !important; }
+#ov-root .ov-names h1 em { background: none !important; -webkit-text-fill-color: #9c6f22 !important; color: #9c6f22 !important; }
+#ov-root .ov-divider::before, #ov-root .ov-divider::after { background: linear-gradient(90deg,transparent,rgba(156,111,34,.6),transparent) !important; }
+#ov-card i.fas { color: #9c6f22 !important; filter: none !important; }
+#ov-root .ov-date-tag, #ov-root .ov-ti-ev { color: #9c6f22 !important; }
+#ov-root .ov-date-main, #ov-root .ov-ti-t { color: #4a1420 !important; }
+#ov-root .ov-hint { color: rgba(74,20,32,.55) !important; }
+#ov-card img { box-shadow: 0 6px 18px rgba(109,26,43,.25), 0 0 0 3px rgba(156,111,34,.15) !important; }
+#ov-root #ov-cta { background: #6d1a2b !important; color: #fbf3e4 !important; box-shadow: 0 8px 22px rgba(109,26,43,.35) !important; animation: none !important; }
+#ov-root #ov-cta::before { background: linear-gradient(135deg,#8a2338,#6d1a2b) !important; }
+#ov-card #ov-cta i { color: #fbf3e4 !important; }
+#ov-petals span:nth-child(3n) { background: #b8893a !important; }
+#ov-petals span:nth-child(3n+1) { background: #d3ae63 !important; }
+#ov-petals span:nth-child(3n+2) { background: #a8505f !important; }
+#ov-sparks span { background: #b8893a !important; }
