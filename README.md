@@ -53,7 +53,3 @@ The RSVP form only sends data once `RSVP_ENDPOINT` in `src/routes/index.tsx` is 
 The project deploys to Vercel straight from GitHub. Import the repository at [vercel.com/new](https://vercel.com/new) and keep the detected settings. The build uses `vite build`, and Nitro picks the Vercel output automatically.
 
 To build for Vercel locally, run `NITRO_PRESET=vercel npm run build`.
-
-## Lovable
-
-This project is connected to [Lovable](https://lovable.dev). Changes pushed to the connected branch sync back into the Lovable editor, so avoid rewriting published git history.
