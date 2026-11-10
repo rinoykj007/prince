@@ -78,7 +78,8 @@ const WEDDING_EVENTS = [
 ];
 
 // Paste the Google Apps Script web app URL here (see README, "RSVP"). Each RSVP becomes a row in your Google Sheet.
-const RSVP_ENDPOINT =
+const RSVP_ENDPOINT: string =
+  import.meta.env["VITE_RSVP_ENDPOINT"] ||
   "https://script.google.com/macros/s/AKfycbzb1PIbtTxvS5tgSl56KJpQF3R_kZMGKrJQgEOwgyDwY4N0DnBiqiphyPLEl9MW7i963Q/exec";
 
 function RsvpForm() {

@@ -62,8 +62,8 @@ RSVPs are saved to a Google Sheet through a free Google Apps Script web app.
    ```
 
 3. Click **Deploy > New deployment > Web app**. Set **Execute as: Me** and **Who has access: Anyone**, then deploy and authorise.
-4. Copy the web app URL (ends in `/exec`) and paste it into `RSVP_ENDPOINT` in `src/routes/index.tsx`.
-5. Commit and push. Vercel redeploys, and each RSVP appears as a new row.
+4. Copy the web app URL (ends in `/exec`) and set it as `VITE_RSVP_ENDPOINT` in a local `.env` file (see `.env.example`) and in Vercel under Project > Settings > Environment Variables. If it isn't set, the code falls back to the URL in `src/routes/index.tsx`.
+5. Push. Vercel redeploys, and each RSVP appears as a new row.
 
 If you change the script later, use **Deploy > Manage deployments > Edit > New version** so the URL stays the same.
 
