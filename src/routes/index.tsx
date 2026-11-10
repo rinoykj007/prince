@@ -1428,7 +1428,7 @@ function Index() {
                       <SplitText text="A.J Prince" by="char" />
                     </h4>
                     <p className="text-[16px] leading-7 m-0 p-0 text-[#434343]">
-                      <SplitText text="“A good heart, a steady hand, and a love that grows stronger with every passing day. He walks beside her with kindness, laughter and a promise to always stand by her side.”" />
+                      <SplitText text="Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala)" />
                     </p>
                   </div>
                   <div className="shrink-0 mt-(--bs-gutter-y) max-w-full pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full hidden invisible min-[992px]:flex-none min-[992px]:w-1/6 xl:block xl:visible">
@@ -1453,7 +1453,7 @@ function Index() {
                       <SplitText text="Malavika P Panayam" by="char" />
                     </h4>
                     <p className="text-[16px] leading-7 m-0 p-0 text-[#434343]">
-                      <SplitText text="“Where there is love there is home, and she carries it with her wherever she goes. With grace, warmth and a gentle smile, she turns every ordinary moment into something beautiful.”" />
+                      <SplitText text="Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S, Jaya Bhavan, Panayam, Pooyappally P.O, Kollam - 691537" />
                     </p>
                   </div>
                 </div>
@@ -1581,8 +1581,6 @@ function Index() {
                               <span className="k-tl-year">{m.year}</span>
                               <span className="k-tl-date">{m.date}</span>
                             </div>
-                            <h4 className="k-tl-title">{m.title}</h4>
-                            <p className="k-tl-text">{m.text}</p>
                           </div>
                         </div>
                       </li>
