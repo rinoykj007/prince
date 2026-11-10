@@ -77,7 +77,7 @@ const WEDDING_EVENTS = [
   },
 ];
 
-// Set this to the URL that should receive RSVPs (POST, JSON: name, email, attend, guests).
+// Paste the Google Apps Script web app URL here (see README, "RSVP"). Each RSVP becomes a row in your Google Sheet.
 const RSVP_ENDPOINT = "";
 
 function RsvpForm() {
@@ -102,9 +102,12 @@ function RsvpForm() {
     }
     setStatus("sending");
     try {
-      const res = await fetch(RSVP_ENDPOINT, {
+      // Apps Script doesn't send CORS headers, so use no-cors with a plain-text body.
+      // The response is opaque; a network failure still throws and shows the error.
+      await fetch(RSVP_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
@@ -112,7 +115,6 @@ function RsvpForm() {
           guests: attend === "yes" ? guests : 0,
         }),
       });
-      if (!res.ok) throw new Error(String(res.status));
       setStatus("done");
     } catch {
       setError("Something went wrong. Please try again.");
@@ -2064,7 +2066,7 @@ function Index() {
 .k-ft-inner.k-pre{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .k-ft-inner.k-pre.k-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.k-ft-inner.k-pre{opacity:1;transform:none;transition:none}.k-ft-photo::before{animation:none}}
-@media(max-width:576px){`}</style>
+`}</style>
             <button
               className="k-ft-top"
               type="button"

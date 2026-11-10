@@ -46,7 +46,26 @@ To change a photo, replace the file in `public/site-assets/photos/` (or point th
 
 ## RSVP
 
-The RSVP form only sends data once `RSVP_ENDPOINT` in `src/routes/index.tsx` is set to a URL that accepts a JSON `POST` with `name`, `email`, `attend` and `guests`. Until then, it shows a message asking guests to contact the family directly.
+RSVPs are saved to a Google Sheet through a free Google Apps Script web app.
+
+1. Create a new Google Sheet. In row 1 type: `Time`, `Name`, `Email`, `Attending`, `Guests`.
+2. Open **Extensions > Apps Script**, replace the code with:
+
+   ```js
+   function doPost(e) {
+     var d = JSON.parse(e.postData.contents);
+     SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().appendRow([
+       new Date(), d.name, d.email, d.attend === "yes" ? "Yes" : "No", d.guests
+     ]);
+     return ContentService.createTextOutput("ok");
+   }
+   ```
+
+3. Click **Deploy > New deployment > Web app**. Set **Execute as: Me** and **Who has access: Anyone**, then deploy and authorise.
+4. Copy the web app URL (ends in `/exec`) and paste it into `RSVP_ENDPOINT` in `src/routes/index.tsx`.
+5. Commit and push. Vercel redeploys, and each RSVP appears as a new row.
+
+If you change the script later, use **Deploy > Manage deployments > Edit > New version** so the URL stays the same.
 
 ## Deployment
 
