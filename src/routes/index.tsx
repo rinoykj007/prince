@@ -422,6 +422,18 @@ function Index() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [galIdx, setGalIdx] = useState(0);
   const [galPause, setGalPause] = useState(false);
+  const musicRef = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+  // Browsers only allow sound after a tap, so the music starts when the guest opens the invitation.
+  const toggleMusic = () => {
+    const a = musicRef.current;
+    if (!a) return;
+    if (a.paused) a.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    else {
+      a.pause();
+      setPlaying(false);
+    }
+  };
   const galTouch = useRef(0);
   useEffect(() => {
     if (lightbox !== null || galPause) return;
@@ -735,8 +747,8 @@ function Index() {
           data-site-import-document-lang="en"
           id="home"
         >
-          <audio id="bg-music" loop {...({ preload: "auto" } as any)}>
-            <source type="audio/mpeg" />
+          <audio id="bg-music" ref={musicRef} loop {...({ preload: "auto" } as any)}>
+            <source src="/site-assets/wedding-music.mp3" type="audio/mpeg" />
           </audio>
           {/* ═══════════════════════════════════════════════
            WEDDING OVERLAY
@@ -967,7 +979,11 @@ function Index() {
                 <button
                   className="items-center! [background:#6d1a2b]! border-current! rounded-[50px]! border-none! shadow-[rgba(109,26,43,0.35)_0px_8px_22px] text-[#fbf3e4]! cursor-pointer flex! font-semibold gap-2.5! justify-center! tracking-[1.2px] m-0 outline-0! overflow-hidden relative! normal-case w-full! text-[14px]! leading-[21px] py-[15px]! px-6! [animation:2.8s_ease-in-out_2.2s_infinite_normal_none_running_btnGlow] [appearance:button] [border-image:none]! [border-width:medium]! [font-family:inherit] [transition:transform_0.25s,box-shadow_0.25s] active:scale-97 hover:shadow-[rgba(109,26,43,0.45)_0px_10px_32px]! hover:translate-y-[-3px] md:text-[15px]! md:leading-[22.5px] md:py-[17px]! md:px-8!"
                   id="ov-cta"
-                  onClick={() => setOpened(true)}
+                  onClick={() => {
+                    setOpened(true);
+                    const a = musicRef.current;
+                    if (a && a.paused) a.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+                  }}
                 >
                   {"\n        "}
                   <span className="relative z-1">View Invitation</span>
@@ -996,11 +1012,12 @@ function Index() {
             style={{ position: "fixed", right: 12, top: 12, zIndex: 1020, display: "flex", gap: 8 }}
           >
             <button
-              aria-label="Volume"
+              aria-label={playing ? "Mute music" : "Play music"}
+              onClick={toggleMusic}
               className="top-icon-btn"
               style={{ background: "rgba(26,32,64,0.75)", color: "#fff" }}
             >
-              <i className="fas fa-volume-up" id="volume" />
+              <i className={`fas ${playing ? "fa-volume-up" : "fa-volume-mute"}`} id="volume" />
             </button>
             <button
               aria-label={menuOpen ? "Close menu" : "Menu"}
