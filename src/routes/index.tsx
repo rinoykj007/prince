@@ -599,30 +599,6 @@ function Index() {
     };
   }, [opened]);
 
-  // Fill the Our Story timeline line as the guest scrolls
-  useEffect(() => {
-    const ol = document.querySelector<HTMLElement>(".k-timeline");
-    if (!ol) return;
-    const update = () => {
-      const rect = ol.getBoundingClientRect();
-      const fill = Math.min(Math.max(window.innerHeight * 0.6 - rect.top, 0), rect.height);
-      ol.style.setProperty("--fill", fill + "px");
-      ol.querySelectorAll<HTMLElement>(".k-tl-dot").forEach((d) => {
-        const r = d.getBoundingClientRect();
-        d.classList.toggle("on", r.top + r.height / 2 - rect.top <= fill);
-      });
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true, capture: true });
-    window.addEventListener("resize", update);
-    const raf = setInterval(update, 400); // safety net in case a scroll event is missed
-    return () => {
-      window.removeEventListener("scroll", update, { capture: true });
-      window.removeEventListener("resize", update);
-      clearInterval(raf);
-    };
-  }, []);
-
   // Fade sections up as they scroll into view
   useEffect(() => {
     const sections = Array.from(
@@ -664,11 +640,6 @@ function Index() {
       </style>
       <style>
         {
-          '.k-timeline{position:relative;list-style:none;margin:50px auto 0;padding:0;max-width:980px}.k-timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:#ddd6df}.k-timeline:after{content:"";position:absolute;left:50%;top:0;width:2px;height:var(--fill,0px);transform:translateX(-50%);background:linear-gradient(180deg,#a8398a,#e66dba);transition:height .12s linear}.k-tl-item{position:relative;display:flex;width:50%;padding:0 46px 46px 0;box-sizing:border-box}.k-tl-item:nth-child(even){margin-left:50%;padding:0 0 46px 46px}.k-tl-dot{position:absolute;top:34px;right:-18px;width:36px;height:36px;border-radius:50%;background:#fff;color:#b9a9b6;border:2px solid #ddd6df;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .4s;z-index:2}.k-tl-dot.on{background:linear-gradient(135deg,#e66dba,#a8398a);color:#fff;border-color:transparent;box-shadow:0 0 0 6px rgba(230,109,186,.22)}.k-tl-item:nth-child(even) .k-tl-dot{right:auto;left:-18px}.k-tl-dot i{font-weight:900;font-style:normal}.k-tl-card{display:flex;gap:18px;align-items:center;width:100%;padding:18px;border-radius:24px;background:linear-gradient(160deg,#2b3358,#1a2040);border:1px solid rgba(243,217,164,.35);box-shadow:0 14px 34px rgba(26,32,64,.28);color:#fff;transition:transform .3s}.k-tl-card:hover{transform:translateY(-4px)}.k-tl-photo{width:110px;height:110px;flex:none;border-radius:50%;object-fit:cover;border:3px solid #f3d9a4;box-shadow:0 0 0 5px rgba(243,217,164,.15)}.k-tl-body{text-align:left;min-width:0}.k-tl-year{display:inline-block;font-family:\'Instrument Serif\',serif!important;font-size:30px;line-height:1;color:#f3d9a4;margin-right:10px}.k-tl-date{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e66dba}.k-tl-title{margin:6px 0 6px!important;font-size:24px!important;color:#fff!important;text-align:left!important}.k-tl-text{margin:0;font-size:13.5px;line-height:1.65;color:#ffffffcc;text-align:left}@media (max-width:760px){.k-timeline:before,.k-timeline:after{left:18px}.k-tl-item,.k-tl-item:nth-child(even){width:100%;margin-left:0;padding:0 0 32px 52px}.k-tl-dot,.k-tl-item:nth-child(even) .k-tl-dot{left:0;right:auto;top:26px}.k-tl-card{flex-direction:column;text-align:center;padding:22px 18px}.k-tl-photo{width:130px;height:130px}.k-tl-body,.k-tl-title,.k-tl-text{text-align:center!important}}'
-        }
-      </style>
-      <style>
-        {
           ".hero-cta{max-width:440px;margin-left:auto;margin-right:auto}.hero-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hero-cta-row .cta-primary{grid-column:1/-1;justify-content:center;padding:14px 22px}.hero-cta-row .cta-ghost{justify-content:center;padding:12px 10px;font-size:13px;white-space:nowrap}.hero-date{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}@media (min-width:760px){.hero-cta{max-width:none}.hero-cta-row{display:flex;justify-content:center}.hero-cta-row .cta-primary{padding:12px 26px}.hero-cta-row .cta-ghost{padding:12px 22px;font-size:14px}}"
         }
       </style>
@@ -690,36 +661,6 @@ function Index() {
       <style>
         {
           ".split-name{font-family:'Playfair Display',Georgia,serif!important;font-weight:600;font-size:1.15em;letter-spacing:.02em;color:#2b3358}.split-desc{font-family:'Cormorant Garamond',Georgia,serif!important;font-style:italic;font-weight:600;font-size:1.3em;line-height:1.35;color:#5a4a63}"
-        }
-      </style>
-      <style>
-        {
-          '.k-tl-meta{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.k-tl-card{position:relative;overflow:hidden}.k-tl-card:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#e66dba,#f3d9a4)}@media (max-width:760px){.k-tl-item,.k-tl-item:nth-child(even){padding:0 0 22px 46px}.k-tl-card{display:grid!important;grid-template-columns:76px 1fr;grid-template-areas:"photo meta" "photo title" "text text";column-gap:14px;row-gap:2px;align-items:center;text-align:left!important;padding:18px 16px 16px!important;border-radius:18px!important}.k-tl-body{display:contents}.k-tl-photo{grid-area:photo;width:76px!important;height:76px!important;border-width:2px!important}.k-tl-meta{grid-area:meta;align-self:end}.k-tl-year{font-size:26px!important;margin-right:0!important}.k-tl-title{grid-area:title;align-self:start;margin:0!important;font-size:22px!important;text-align:left!important}.k-tl-text{grid-area:text;margin-top:12px!important;font-size:14px!important;line-height:1.7!important;text-align:left!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}.k-tl-body,.k-tl-title,.k-tl-text{text-align:left!important}.k-tl-dot,.k-tl-item:nth-child(even) .k-tl-dot{width:32px;height:32px;top:20px;left:2px}}'
-        }
-      </style>
-      <style>
-        {
-          ".k-tl-card{display:block!important;position:relative;padding:0!important;background:#fff!important;border:1px solid #eadff0!important;border-radius:22px!important;overflow:hidden;color:#2b3358!important;box-shadow:0 12px 30px rgba(60,40,90,.12)!important;text-align:left!important}.k-tl-card:before{display:none!important}.k-tl-photo{display:block!important;width:100%!important;height:230px!important;border:0!important;border-radius:999px 999px 0 0!important;object-fit:cover;object-position:center 25%;box-shadow:none!important}.k-tl-body{display:block!important;padding:18px 22px 24px;text-align:left!important}.k-tl-meta{position:absolute;left:50%;top:188px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;flex-wrap:nowrap;white-space:nowrap;padding:7px 16px;border-radius:999px;background:rgba(26,32,64,.88);backdrop-filter:blur(6px)}.k-tl-year{font-size:22px!important;margin:0!important;color:#f3d9a4!important}.k-tl-date{font-size:10px!important;letter-spacing:1.8px;color:#f6b9de!important}.k-tl-title{margin:22px 0 8px!important;font-size:26px!important;color:#2b3358!important;text-align:center!important}.k-tl-text{margin:0!important;padding:0!important;border:0!important;font-size:14.5px!important;line-height:1.75!important;color:#5d5a6b!important;text-align:center!important}.k-tl-dot,.k-tl-item:nth-child(even) .k-tl-dot{top:26px}@media (max-width:760px){.k-tl-card{display:block!important}.k-tl-photo{height:210px!important;width:100%!important}.k-tl-meta{top:170px}.k-tl-item,.k-tl-item:nth-child(even){padding:0 0 28px 46px}.k-tl-body{padding:18px 18px 22px}.k-tl-title,.k-tl-text{text-align:center!important}.k-tl-text{text-align:left!important}}"
-        }
-      </style>
-      <style>
-        {
-          '.k-tl-card{display:block!important;position:relative;min-height:400px;padding:0!important;border:0!important;border-radius:26px!important;overflow:hidden;background:#1a2040!important;box-shadow:0 18px 40px rgba(26,32,64,.3)!important;color:#fff!important;text-align:left!important}.k-tl-card:before{content:"";display:block!important;position:absolute;inset:0;height:auto!important;z-index:1;background:linear-gradient(180deg,rgba(26,32,64,0) 30%,rgba(26,32,64,.82) 68%,rgba(26,32,64,.96) 100%)!important}.k-tl-photo{position:absolute;inset:0;display:block!important;width:100%!important;height:100%!important;border:0!important;border-radius:0!important;object-fit:cover;object-position:center 20%;box-shadow:none!important;transition:transform 1.2s ease}.k-tl-card:hover .k-tl-photo{transform:scale(1.06)}.k-tl-body{position:absolute;left:0;right:0;bottom:0;z-index:2;display:block!important;padding:0 24px 24px;text-align:left!important}.k-tl-meta{position:absolute;left:18px;top:-0px;transform:none;display:flex;align-items:center;gap:8px;white-space:nowrap;padding:0;background:none;backdrop-filter:none}.k-tl-card .k-tl-meta{top:auto;left:auto;position:static;display:inline-flex;margin-bottom:14px;transform:none;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35)}.k-tl-year{font-size:20px!important;margin:0!important;color:#fff!important}.k-tl-date{font-size:10px!important;letter-spacing:1.8px;color:#f3d9a4!important}.k-tl-title{margin:0 0 8px!important;font-size:30px!important;line-height:1.1!important;color:#fff!important;text-align:left!important}.k-tl-title:after{content:"";display:block;width:44px;height:2px;margin-top:10px;background:linear-gradient(90deg,#e66dba,#f3d9a4)}.k-tl-text{margin:12px 0 0!important;padding:0!important;border:0!important;font-size:14px!important;line-height:1.7!important;color:rgba(255,255,255,.88)!important;text-align:left!important}.k-tl-dot,.k-tl-item:nth-child(even) .k-tl-dot{top:24px}@media (max-width:760px){.k-tl-card{min-height:460px}.k-tl-item,.k-tl-item:nth-child(even){padding:0 0 26px 46px}.k-tl-body{padding:0 20px 22px}.k-tl-title{font-size:27px!important}}'
-        }
-      </style>
-      <style>
-        {
-          ".k-timeline:before{width:3px!important;background:rgba(230,109,186,.32)!important;border-radius:3px}.k-timeline:after{width:3px!important;border-radius:3px;background:linear-gradient(180deg,#a8398a,#e66dba 70%,#f3d9a4)!important;box-shadow:0 0 12px rgba(230,109,186,.55)}.k-timeline:before,.k-timeline:after{display:block!important}"
-        }
-      </style>
-      <style>
-        {
-          ".k-tl-text{text-align:justify!important;text-align-last:left;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;word-spacing:.02em}.k-tl-body{padding-left:22px!important;padding-right:22px!important;box-sizing:border-box}@media (max-width:760px){.k-tl-body{padding-left:20px!important;padding-right:20px!important}}"
-        }
-      </style>
-      <style>
-        {
-          ".k-tl-title{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:700!important;font-size:34px!important;letter-spacing:.01em!important;line-height:1.05!important}.k-tl-text{font-family:'Lora',Georgia,serif!important;font-weight:400;font-size:14px!important;line-height:1.8!important;letter-spacing:.005em}.k-tl-date{font-family:'Inter',sans-serif!important}@media (max-width:760px){.k-tl-title{font-size:32px!important}}"
         }
       </style>
       <style>
@@ -1132,7 +1073,6 @@ function Index() {
               {[
                 ["#home", "Home", "fa-home"],
                 ["#happycouples", "Happy Couple", "fa-heart"],
-                ["#ourstory", "Families", "fa-book-open"],
                 ["#whenandwhere", "When & Where", "fa-map-marker-alt"],
                 ["#gallery", "Gallery", "fa-images"],
                 ["#video", "Video", "fa-video"],
@@ -1413,10 +1353,7 @@ function Index() {
                       alt=""
                     />
                   </div>
-                  <div className="col-lg-5 shrink-0 max-w-full w-full mt-[45px] mr-0 mb-0 ml-0 pt-[18px]! pr-3! pb-0! pl-3! min-[992px]:flex-none min-[992px]:w-[41.6667%] xl:m-0 xl:py-0! xl:px-12!">
-                    <div className="pg-couple-amp text-[52px] italic leading-none mt-0 mr-0 mb-[18px] ml-0 text-center text-[#060644] block! xl:hidden!">
-                      &amp;
-                    </div>
+                  <div className="col-lg-5 shrink-0 max-w-full w-full mt-3 min-[992px]:mt-[45px] mr-0 mb-0 ml-0 pt-0! min-[992px]:pt-[18px]! pr-3! pb-0! pl-3! min-[992px]:flex-none min-[992px]:w-[41.6667%] xl:m-0 xl:py-0! xl:px-12!">
                     <div className="propic rounded-[50%] inline-block h-[300px] mb-[45px] relative w-[300px]">
                       <img
                         className="rounded-[50%] h-full object-cover align-middle w-full max-w-none"
@@ -1510,57 +1447,6 @@ function Index() {
                       <i className="fas fa-spa" />
                     </span>
                   </span>
-                </div>
-              </div>
-              <a
-                className="outline-0! no-underline duration-300 text-site-import-foreground hover:no-underline hover:[color:inherit]"
-                id="ourstory"
-              />
-              <div className="container ml-auto mr-auto max-w-[1440px]! pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full">
-                <div className="w-full mt-20 mr-0 mb-0 ml-0 md:mt-[100px] md:mr-0 md:mb-0 md:ml-0">
-                  <div className="inline-block w-full mt-0 mr-0 mb-[45px] ml-0 xl:mt-0 xl:mr-0 xl:mb-5 xl:ml-0">
-                    <h6 className="font-[family-name:Roboto,sans-serif]! text-[14px] font-medium tracking-[4px] leading-[1.2] mt-0 mr-0 mb-1.5 ml-0 -mb-1.5! p-0 relative text-center uppercase text-[#a8879c]">
-                      our families
-                    </h6>
-                    <h1 className="font-[family-name:var(--heading-font)]! font-medium leading-[52px] m-0 p-0 relative text-center w-full text-[#060644] text-[32px] md:text-[52px]">
-                      With Family Blessings
-                    </h1>
-                  </div>
-                  <ol className="k-timeline">
-                    {[
-                      {
-                        img: "/site-assets/photos/photo-2.jpeg",
-                        year: "Groom",
-                        date: "A.J Prince",
-                        title: "The Groom's Family",
-                        icon: "fa-home",
-                        text: "Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga, and Late Sri. S Sivadasan and Late Smt. G Sairanthry.",
-                      },
-                      {
-                        img: "/site-assets/photos/photo-4.jpeg",
-                        year: "Bride",
-                        date: "Malavika P Panayam",
-                        title: "The Bride's Family",
-                        icon: "fa-heart",
-                        text: "Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S.",
-                      },
-                    ].map((m) => (
-                      <li key={m.title} className="k-tl-item">
-                        <span className="k-tl-dot">
-                          <i className={`fas ${m.icon}`} />
-                        </span>
-                        <div className="k-tl-card">
-                          <img src={m.img} alt={m.title} className="k-tl-photo" />
-                          <div className="k-tl-body">
-                            <div className="k-tl-meta">
-                              <span className="k-tl-year">{m.year}</span>
-                              <span className="k-tl-date">{m.date}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
                 </div>
               </div>
             </section>
@@ -2220,7 +2106,6 @@ function Index() {
                 <span />
               </div>
               <div className="k-footer-links">
-                <a href="#ourstory">Families</a>
                 <a href="#whenandwhere">When &amp; Where</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#rsvp">RSVP</a>
