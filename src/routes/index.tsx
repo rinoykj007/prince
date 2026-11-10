@@ -424,7 +424,25 @@ function Index() {
   const [galPause, setGalPause] = useState(false);
   const musicRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
-  // Browsers only allow sound after a tap, so the music starts when the guest opens the invitation.
+  // Try to start the music as soon as the page loads. Browsers usually block sound until the guest
+  // interacts, so if that fails it starts on the first tap, key press or scroll instead.
+  useEffect(() => {
+    const a = musicRef.current;
+    if (!a) return;
+    const events = ["pointerdown", "touchstart", "keydown", "wheel"] as const;
+    const start = () => {
+      a.play()
+        .then(() => {
+          setPlaying(true);
+          events.forEach((e) => window.removeEventListener(e, start));
+        })
+        .catch(() => {});
+    };
+    a.play()
+      .then(() => setPlaying(true))
+      .catch(() => events.forEach((e) => window.addEventListener(e, start, { passive: true })));
+    return () => events.forEach((e) => window.removeEventListener(e, start));
+  }, []);
   const toggleMusic = () => {
     const a = musicRef.current;
     if (!a) return;
