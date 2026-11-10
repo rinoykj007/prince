@@ -2073,11 +2073,15 @@ function Index() {
                 <div className="row flex flex-wrap justify-center! ml-[calc(-.5_*_var(--bs-gutter-x))] mr-[calc(-.5_*_var(--bs-gutter-x))] mt-[calc(-1_*_var(--bs-gutter-y))]">
                   <div className="flex-none mb-6! mt-(--bs-gutter-y) max-w-full pl-[calc(var(--bs-gutter-x)_*_.5)] pr-[calc(var(--bs-gutter-x)_*_.5)] w-full min-[768px]:flex-none min-[768px]:w-5/6 min-[992px]:flex-none min-[992px]:w-2/3">
                     <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#1a1a2e] rounded-[14px] shadow-[0_8px_32px_rgba(0,0,0,0.18)] overflow-hidden pt-[56.25%] relative w-full">
-                      <img
-                        className="border-0 h-auto! inset-0 max-w-full absolute align-middle w-[936px]"
+                      <iframe
+                        className="absolute inset-0 h-full w-full border-0"
                         id="ytPlayer"
-                        alt="Prince and Malavika"
-                        src="/site-assets/photos/photo-6.jpeg"
+                        src="https://www.youtube.com/embed/LXPd-S9xV8E?rel=0"
+                        title="Prince and Malavika"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
                       />
                     </div>
                   </div>
