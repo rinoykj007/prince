@@ -1152,31 +1152,6 @@ function Index() {
                 </a>
               ))}
             </nav>
-            <a
-              className="side-live"
-              href="https://www.youtube.com/watch?v=1FdJyaCZ5ow"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setMenuOpen(false)}
-              style={{
-                marginTop: 14,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 10,
-                padding: "13px 16px",
-                borderRadius: 50,
-                background: "linear-gradient(135deg,#e66dba,#a8398a)",
-                color: "#fff",
-                fontWeight: 600,
-                fontSize: 14,
-                letterSpacing: 0.8,
-                textDecoration: "none",
-                boxShadow: "0 6px 20px rgba(230,109,186,0.4)",
-              }}
-            >
-              <i className="fas fa-broadcast-tower" /> Live Streaming
-            </a>
           </aside>
           <div
             className="modal hidden h-full left-0 opacity-0 outline-0 overflow-x-hidden overflow-y-auto fixed top-0 transition-opacity duration-150 ease-linear w-full [z-index:var(--bs-modal-zindex)] motion-reduce:transition-none"
@@ -2249,13 +2224,6 @@ function Index() {
                 <a href="#whenandwhere">When &amp; Where</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#rsvp">RSVP</a>
-                <a
-                  href="https://www.youtube.com/watch?v=1FdJyaCZ5ow"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Live Streaming
-                </a>
               </div>
               <div className="k-ft-cta-row">
                 <a className="k-ft-btn fill" href="#rsvp">
