@@ -1587,7 +1587,8 @@ function Index() {
 .k-ev-info{margin:0 0 20px;font-size:14px;line-height:1.7;color:#ffffffcc}
 .k-ev-info i{margin-right:8px;color:#f3d9a4}
 .k-ev-info a{color:inherit;text-decoration:none}
-.k-ev-info svg{margin-right:8px;vertical-align:-2px;color:#f3d9a4}
+.k-ev-info svg{display:inline-block;margin-right:8px;vertical-align:-2px;color:#f3d9a4}
+.k-ev-loc>svg:first-child{display:block;margin:0 auto 6px}
 .k-ev-time svg{margin-right:4px;vertical-align:-2px}
 .k-ev-btn{display:inline-block;padding:0 24px;border-radius:20px;background:#f3d9a4;color:#1a2040;font-size:14px;font-weight:600;line-height:40px;text-decoration:none;transition:all .3s}
 .k-ev-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.25)}
@@ -1644,7 +1645,7 @@ function Index() {
                           {n}
                         </p>
                       ))}
-                      <p className="k-ev-info">
+                      <p className="k-ev-info k-ev-loc">
                         <svg
                           width="16"
                           height="16"
@@ -1661,7 +1662,19 @@ function Index() {
                         </svg>
                         {c.event.location}
                         <br />
-                        <i className="fas fa-phone" />
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+                        </svg>
                         <a href={`tel:+91${CONTACT_PHONE}`}>+91 {CONTACT_PHONE}</a>
                       </p>
                       <a
