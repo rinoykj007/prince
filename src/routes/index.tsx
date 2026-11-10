@@ -979,7 +979,7 @@ function Index() {
                       Time
                     </span>
                     <span className="ov-ti-t text-[#ffffffe0] text-[13px] font-medium tracking-[0.2px]">
-                      Muhurtham 10 AM – 11 AM
+                      Muhurtham 10:30 AM – 11 AM
                     </span>
                   </div>
                   <div className="border-l border-solid border-l-[#9c6f2266] flex flex-1 flex-col gap-1 py-[11px] px-2.5">
@@ -1559,7 +1559,7 @@ function Index() {
                         date: "A.J Prince",
                         title: "The Groom's Family",
                         icon: "fa-home",
-                        text: "Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga (Jaya Medicals, Adoor) and Late Sri. S Sivadasan and Late Smt. G Sairanthry (Janatha Printers, Varkala). “A good heart, a steady hand, and a love that grows stronger with every passing day. He walks beside her with kindness, laughter and a promise to always stand by her side.”",
+                        text: "Son of Late Sri. S. Ashokan and Smt. S. Jaya. Grandson of Late Sri. V.K Jayasenan and Smt. K Subhaga, and Late Sri. S Sivadasan and Late Smt. G Sairanthry.",
                       },
                       {
                         img: "/site-assets/photos/photo-4.jpeg",
@@ -1567,7 +1567,7 @@ function Index() {
                         date: "Malavika P Panayam",
                         title: "The Bride's Family",
                         icon: "fa-heart",
-                        text: "Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S. “Where there is love there is home, and she carries it with her wherever she goes. With grace, warmth and a gentle smile, she turns every ordinary moment into something beautiful.”",
+                        text: "Daughter of Sri. R.B. Pramode Panayam and Smt. Kala Rani T.S.",
                       },
                     ].map((m) => (
                       <li key={m.title} className="k-tl-item">
